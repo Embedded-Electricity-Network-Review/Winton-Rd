@@ -1,0 +1,938 @@
+<!doctype html>
+<html lang="en-AU">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Embedded Electricity Network Review — Information for Owners, 5/5A Winton Road, Malvern East</title>
+<meta name="description" content="Review of the embedded electricity network at 5/5A Winton Road, Malvern East. Facts, timeline and questions and answers for lot owners ahead of the special resolution vote.">
+<meta name="robots" content="noindex">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>&#9889;</text></svg>">
+</head>
+<body>
+<style>
+/* ==========================================================================
+   Presentation follows the conventions of a printed information sheet:
+   a ruled masthead, a margin column carrying navigation, numbered sections,
+   a controlled measure, and tabular figures wherever numbers or dates line
+   up. The craft sits in the typography and the grid. Nothing animates,
+   nothing is concealed, and no element is styled to make one voting outcome
+   look preferable to the other.
+   ========================================================================== */
+
+:root {
+  --paper:     #FFFFFF;
+  --paper-2:   #F6F8F8;
+  --ink:       #11171A;
+  --ink-2:     #4D585F;
+  --ink-3:     #79848A;
+  --rule:      #E4E8EA;
+  --rule-2:    #C6CED1;
+  --accent:    #0B5A52;
+
+  --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
+
+  --fs-micro: 0.7rem;
+  --fs-xs:    0.8125rem;
+  --fs-sm:    0.9375rem;
+  --fs-base:  1.0625rem;
+  --fs-md:    1.125rem;
+  --fs-lg:    1.3125rem;
+
+  --measure: 64ch;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --paper:   #101517;
+    --paper-2: #171E20;
+    --ink:     #E9EFF0;
+    --ink-2:   #A5AFB4;
+    --ink-3:   #7E888D;
+    --rule:    #232B2E;
+    --rule-2:  #3A4448;
+    --accent:  #62C7B8;
+  }
+}
+:root[data-theme="dark"] {
+  --paper:   #101517;
+  --paper-2: #171E20;
+  --ink:     #E9EFF0;
+  --ink-2:   #A5AFB4;
+  --ink-3:   #7E888D;
+  --rule:    #232B2E;
+  --rule-2:  #3A4448;
+  --accent:  #62C7B8;
+}
+:root[data-theme="light"] {
+  --paper:   #FFFFFF;
+  --paper-2: #F6F8F8;
+  --ink:     #11171A;
+  --ink-2:   #4D585F;
+  --ink-3:   #79848A;
+  --rule:    #E4E8EA;
+  --rule-2:  #C6CED1;
+  --accent:  #0B5A52;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--sans);
+  font-size: var(--fs-base);
+  line-height: 1.62;
+  -webkit-font-smoothing: antialiased;
+  font-variant-numeric: tabular-nums;
+}
+
+h1, h2, h3 { margin: 0; line-height: 1.22; letter-spacing: -0.018em; text-wrap: balance; }
+p, ul, ol, dl, dd { margin: 0; }
+p { text-wrap: pretty; }
+a { color: var(--accent); text-underline-offset: 0.18em; text-decoration-thickness: 1px; }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+
+/* small tracked label, used for every eyebrow on the page */
+.label {
+  font-size: var(--fs-micro);
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: var(--ink-3);
+}
+
+/* ==========================================================================
+   Document grid — margin column carries the contents list on wide screens
+   ========================================================================== */
+.doc {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  max-width: 46rem;
+  margin: 0 auto;
+  padding: 2.75rem 1.25rem 4rem;
+  row-gap: 0;
+}
+
+@media (min-width: 1060px) {
+  .doc {
+    max-width: 66rem;
+    grid-template-columns: 12rem minmax(0, 44rem);
+    column-gap: 4rem;
+    justify-content: center;
+    padding-top: 3.5rem;
+  }
+  .masthead { grid-area: 1 / 2; }
+  .notice   { grid-area: 2 / 2; }
+  .summary  { grid-area: 3 / 2; }
+  .toc      { grid-area: 3 / 1 / 6 / 2; position: sticky; top: 3.5rem; align-self: start; }
+  main      { grid-area: 4 / 2; }
+  footer    { grid-area: 5 / 2; }
+}
+
+/* ---------- masthead ---------- */
+.masthead {
+  border-top: 3px solid var(--ink);
+  padding-top: 1.1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+}
+h1 {
+  font-size: clamp(1.6rem, 1.2rem + 1.8vw, 2.15rem);
+  font-weight: 700;
+  letter-spacing: -0.028em;
+}
+.masthead .sub { font-size: var(--fs-md); color: var(--ink-2); }
+.masthead .colophon {
+  margin-top: 0.55rem;
+  padding-top: 0.6rem;
+  border-top: 1px solid var(--rule);
+  font-family: var(--mono);
+  font-size: var(--fs-micro);
+  letter-spacing: 0.04em;
+  color: var(--ink-3);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem 1.4rem;
+  text-transform: uppercase;
+}
+
+/* ---------- neutrality notice ---------- */
+.notice {
+  margin-top: 1.6rem;
+  font-size: var(--fs-sm);
+  color: var(--ink-2);
+  border-left: 2px solid var(--rule-2);
+  padding: 0.1rem 0 0.1rem 1rem;
+  max-width: var(--measure);
+}
+
+/* ---------- summary ---------- */
+.summary {
+  margin-top: 1.9rem;
+  background: var(--paper-2);
+  border-top: 2px solid var(--ink);
+  border-bottom: 1px solid var(--rule-2);
+  padding: 1.2rem 1.4rem 1.4rem;
+}
+.summary h2 { margin-bottom: 0.85rem; }
+.summary ul {
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+  font-size: var(--fs-sm);
+}
+.summary li { position: relative; padding-left: 1.1rem; }
+.summary li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.62em;
+  width: 5px;
+  height: 1px;
+  background: var(--ink-3);
+}
+
+/* ---------- contents ---------- */
+.toc {
+  margin-top: 2rem;
+  border-top: 1px solid var(--rule-2);
+  padding-top: 0.85rem;
+}
+.toc h2 { margin-bottom: 0.7rem; }
+.toc ol {
+  list-style: none;
+  padding: 0;
+  counter-reset: toc;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.5rem 1.75rem;
+  font-size: var(--fs-sm);
+}
+@media (min-width: 620px) and (max-width: 1059px) {
+  .toc ol { grid-template-columns: 1fr 1fr; }
+}
+@media (min-width: 1060px) {
+  .toc { margin-top: 0; font-size: var(--fs-xs); }
+  .toc ol { font-size: var(--fs-xs); gap: 0.6rem; line-height: 1.4; }
+}
+.toc li { counter-increment: toc; position: relative; padding-left: 1.5rem; }
+.toc li::before {
+  content: counter(toc) ".";
+  position: absolute;
+  left: 0;
+  font-family: var(--mono);
+  color: var(--ink-3);
+  font-size: 0.92em;
+}
+.toc a { color: var(--ink-2); text-decoration: none; }
+.toc a:hover { color: var(--accent); text-decoration: underline; }
+
+/* ==========================================================================
+   Sections
+   ========================================================================== */
+main { counter-reset: sec; display: flex; flex-direction: column; }
+
+section {
+  counter-increment: sec;
+  border-top: 1px solid var(--rule-2);
+  margin-top: 2.75rem;
+  padding-top: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  scroll-margin-top: 1.5rem;
+}
+section > h2 {
+  font-size: var(--fs-lg);
+  font-weight: 700;
+  display: flex;
+  gap: 0.7rem;
+}
+section > h2::before {
+  content: counter(sec) ".";
+  font-family: var(--mono);
+  font-weight: 500;
+  color: var(--ink-3);
+  letter-spacing: 0;
+  flex: none;
+}
+
+section h3 {
+  font-size: 1.0125rem;
+  font-weight: 700;
+  margin-top: 0.7rem;
+  color: var(--ink);
+}
+
+section p, section li, section dd { max-width: var(--measure); }
+section > ul, section > ol { padding-left: 1.15rem; display: flex; flex-direction: column; gap: 0.5rem; }
+section li::marker { color: var(--ink-3); }
+
+.lead { font-size: var(--fs-md); color: var(--ink); }
+.muted { color: var(--ink-2); font-size: var(--fs-sm); }
+
+/* ---------- the resolution ---------- */
+.resolution {
+  border-top: 2px solid var(--ink);
+  border-bottom: 2px solid var(--ink);
+  padding: 1.1rem 0 1.15rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+}
+.resolution .text {
+  font-size: clamp(1.2rem, 1.05rem + 0.5vw, 1.4rem);
+  font-weight: 650;
+  line-height: 1.3;
+  letter-spacing: -0.022em;
+  max-width: 32ch;
+}
+.resolution .muted { max-width: var(--measure); }
+
+/* ---------- does / does not ---------- */
+.pair {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0;
+  border-top: 1px solid var(--rule);
+}
+.pair > div {
+  border-bottom: 1px solid var(--rule);
+  padding: 0.9rem 0;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.2rem 1.5rem;
+}
+@media (min-width: 720px) {
+  .pair > div { grid-template-columns: 11rem minmax(0, 1fr); }
+}
+.pair dt {
+  font-size: var(--fs-xs);
+  font-weight: 700;
+  color: var(--ink);
+  line-height: 1.45;
+  padding-top: 0.12rem;
+}
+.pair dd { color: var(--ink-2); font-size: var(--fs-sm); }
+
+/* ---------- tables ---------- */
+.table-scroll { overflow-x: auto; }
+table {
+  border-collapse: collapse;
+  width: 100%;
+  min-width: 33rem;
+  font-size: var(--fs-sm);
+}
+caption {
+  caption-side: bottom;
+  text-align: left;
+  font-size: var(--fs-xs);
+  color: var(--ink-3);
+  padding-top: 0.75rem;
+  line-height: 1.5;
+  max-width: var(--measure);
+}
+th, td {
+  text-align: left;
+  vertical-align: top;
+  padding: 0.7rem 1.2rem 0.7rem 0;
+  border-bottom: 1px solid var(--rule);
+}
+thead th {
+  font-size: var(--fs-micro);
+  letter-spacing: 0.11em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+  font-weight: 700;
+  border-bottom: 1.5px solid var(--ink);
+  padding-bottom: 0.5rem;
+}
+td:first-child {
+  font-family: var(--mono);
+  font-size: 0.92em;
+  color: var(--ink-3);
+  white-space: nowrap;
+  padding-top: 0.78rem;
+}
+td:last-child, th:last-child { padding-right: 0; }
+.col-outcome { color: var(--ink-2); }
+
+/* ---------- questions ---------- */
+.qa { list-style: none; padding: 0; counter-reset: qa; display: flex; flex-direction: column; }
+.qa > li {
+  counter-increment: qa;
+  position: relative;
+  padding: 1rem 0 1.05rem 2.4rem;
+  border-bottom: 1px solid var(--rule);
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+  max-width: none;
+}
+.qa > li:first-child { border-top: 1px solid var(--rule); }
+.qa > li::before {
+  content: counter(qa);
+  position: absolute;
+  left: 0;
+  top: 1.05rem;
+  font-family: var(--mono);
+  font-size: var(--fs-xs);
+  color: var(--ink-3);
+}
+.qa h3 { margin-top: 0; }
+.qa p { color: var(--ink-2); }
+
+/* ---------- contacts ---------- */
+.contacts { list-style: none; padding: 0; display: flex; flex-direction: column; gap: 0.9rem; }
+.contacts li {
+  padding-left: 1rem;
+  border-left: 2px solid var(--rule-2);
+  max-width: var(--measure);
+  font-size: var(--fs-sm);
+  color: var(--ink-2);
+}
+.contacts strong { color: var(--ink); }
+
+/* ---------- placeholders awaiting real data ---------- */
+.tbc {
+  background: var(--paper-2);
+  border-bottom: 1px dotted var(--rule-2);
+  padding: 0.04em 0.22em;
+  color: var(--ink-2);
+  font-size: 0.94em;
+  overflow-wrap: break-word;
+}
+
+footer {
+  margin-top: 2.75rem;
+  border-top: 3px solid var(--ink);
+  padding-top: 1.1rem;
+  font-size: var(--fs-xs);
+  color: var(--ink-3);
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  max-width: var(--measure);
+  line-height: 1.6;
+}
+
+/* ==========================================================================
+   Print
+   ========================================================================== */
+/* Side margins are set so the printed line length stays near 80 characters at
+   10pt, rather than running the full width of the sheet. */
+@page { margin: 18mm 25mm; }
+
+@media print {
+  :root {
+    --paper: #fff; --paper-2: #fff; --ink: #000; --ink-2: #222; --ink-3: #555;
+    --rule: #ccc; --rule-2: #999; --accent: #000;
+  }
+  body { font-size: 10pt; line-height: 1.45; }
+  .doc {
+    display: block;
+    max-width: none;
+    padding: 0;
+  }
+  .toc { display: none; }
+  .summary { border: 1px solid #999; padding: 0.8rem 1rem; max-width: 68ch; }
+  section { margin-top: 1.6rem; padding-top: 0.9rem; }
+  section > h2 { break-after: avoid; }
+  section h3 { break-after: avoid; }
+  .resolution, .summary, .pair > div, tr, .qa > li { break-inside: avoid; }
+  table { min-width: 0; }
+  a { color: #000; text-decoration: none; }
+  .tbc { background: none; border-bottom: 1px dotted #888; }
+}
+</style>
+
+<div class="doc">
+
+  <header class="masthead">
+    <h1>Embedded Electricity Network Review</h1>
+    <p class="sub">Information for Owners – 5/5A Winton Road, Malvern East</p>
+  </header>
+
+  <p class="notice">
+    This page has been prepared by the Owners Corporation Committee as a factual information
+    resource. It is intended to assist owners in making an informed decision when voting on the
+    Special Resolution. It is provided for information only, and is not intended to influence how
+    owners vote.
+  </p>
+
+  <div class="summary">
+    <h2 class="label">In summary</h2>
+    <ul>
+      <li>Owners are being asked to approve a Special Resolution to terminate the property's
+          existing embedded electricity supply agreement.</li>
+      <li>The resolution <strong>does not appoint a new electricity provider</strong>. If the
+          agreement is lawfully terminated, the Committee appoints a replacement under its
+          existing powers.</li>
+      <li>The agreement can only be terminated following approval by a Special Resolution. That
+          contractual requirement is why owners are being asked to vote.</li>
+      <li>A Special Resolution requires <strong>75% of the total votes</strong> of the Owners
+          Corporation, counted across every lot in the plan.</li>
+      <li>The Committee has issued a notice of termination, a letter of demand through its legal
+          representatives, and a referral to the Energy and Water Ombudsman (Victoria). No
+          response has been received to any of them.</li>
+      <li>Voting closes <span class="tbc">[date TBC]</span>.</li>
+    </ul>
+  </div>
+
+  <nav class="toc" aria-label="Contents">
+    <h2 class="label">Contents</h2>
+    <ol>
+      <li><a href="#approve">What owners are being asked to approve</a></li>
+      <li><a href="#background">Background to the review</a></li>
+      <li><a href="#steps">Steps taken to date</a></li>
+      <li><a href="#outcomes">What each outcome means</a></li>
+      <li><a href="#voting">How the vote works</a></li>
+      <li><a href="#questions">Questions and answers</a></li>
+      <li><a href="#documents">Documents and contacts</a></li>
+      <li><a href="#about">About this page</a></li>
+    </ol>
+  </nav>
+
+  <main>
+
+    <section id="approve">
+      <h2>What owners are being asked to approve</h2>
+
+      <p class="lead">
+        The property is supplied through an embedded electricity network under an agreement with
+        Shine Power. Owners are being asked to approve a Special Resolution to terminate that
+        agreement.
+      </p>
+
+      <div class="resolution">
+        <span class="label">The resolution put to owners</span>
+        <p class="text">
+          Should the owners corporation terminate its embedded electricity supply agreement?
+        </p>
+        <p class="muted">
+          <span class="tbc">[Final wording to be inserted — to be settled by the owners
+          corporation's solicitors before the notice of meeting issues.]</span>
+          The wording that appears on your ballot paper is the wording that binds. Please read it
+          before you vote.
+        </p>
+      </div>
+
+      <dl class="pair">
+        <div>
+          <dt>What the resolution does</dt>
+          <dd>
+            Seeks approval from owners to enable the Owners Corporation to terminate the existing
+            agreement in accordance with its contractual requirements.
+          </dd>
+        </div>
+        <div>
+          <dt>What the resolution does not do</dt>
+          <dd>
+            It does not appoint a new electricity provider. If the resolution is passed and the
+            agreement is lawfully terminated, the Committee will then be able to proceed with the
+            appointment of a replacement provider under its existing powers.
+          </dd>
+        </div>
+      </dl>
+
+      <h3>Why owners are being asked to vote</h3>
+      <p>
+        Appointing a supplier is a decision within the Committee's powers. Terminating the
+        existing agreement is not. The agreement includes a contractual requirement that it can
+        only be terminated following approval by a Special Resolution of the Owners Corporation.
+        It is because of that requirement that owners are being asked to vote.
+      </p>
+    </section>
+
+    <section id="background">
+      <h2>Background to the review</h2>
+
+      <p>
+        Over a number of years, both the previous Committee and the current Committee have
+        undertaken an extensive review of the existing embedded network arrangements.
+      </p>
+
+      <p>The review considered:</p>
+      <ul>
+        <li>the overall value provided to owners and residents;</li>
+        <li>the transparency of pricing and billing;</li>
+        <li>communication with the provider, and its responsiveness to the Owners Corporation;</li>
+        <li>the long-term operation of the embedded network; and</li>
+        <li>whether the financial benefits associated with the property's solar generation were
+            being appropriately realised for owners and residents.</li>
+      </ul>
+
+      <h3>Supply has remained reliable</h3>
+      <p>
+        The Committee acknowledges that the embedded electricity network has continued to provide
+        a reliable electricity supply to the property. The review was therefore not directed at
+        continuity of supply, but at broader governance considerations.
+      </p>
+
+      <h3>The Committee's decision</h3>
+      <p>
+        Having considered these matters over an extended period, the Committee resolved to seek
+        termination of the existing agreement and, if the agreement is lawfully terminated, to
+        appoint an alternative embedded electricity provider.
+      </p>
+      <p>
+        The Committee has identified Origin Energy as its preferred replacement provider. Origin
+        manages the property's existing embedded hot water service, and has offered discounts on
+        that basis. As set out above, the resolution itself does not appoint Origin or any other
+        provider.
+      </p>
+    </section>
+
+    <section id="steps">
+      <h2>Steps taken to date</h2>
+
+      <p>
+        In accordance with the contractual process, the Committee has taken a number of steps to
+        terminate the existing agreement.
+      </p>
+
+      <div class="table-scroll">
+        <table>
+          <caption>
+            Each entry corresponds to a dated document held by the Owners Corporation Manager and
+            available to lot owners on request.
+          </caption>
+          <colgroup>
+            <col style="width: 8.5rem">
+            <col>
+            <col style="width: 11rem">
+          </colgroup>
+          <thead>
+            <tr>
+              <th scope="col">Date</th>
+              <th scope="col">Step</th>
+              <th scope="col">Outcome</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><span class="tbc">[date TBC]</span></td>
+              <td>Formal notice of termination issued to the provider</td>
+              <td class="col-outcome">No response received</td>
+            </tr>
+            <tr>
+              <td><span class="tbc">[date TBC]</span></td>
+              <td>Committee becomes aware that the provider's recorded contact details are no
+                  longer current</td>
+              <td class="col-outcome">—</td>
+            </tr>
+            <tr>
+              <td><span class="tbc">[date TBC]</span></td>
+              <td>Letter of Demand issued by the Owners Corporation's legal representatives</td>
+              <td class="col-outcome">No response received</td>
+            </tr>
+            <tr>
+              <td><span class="tbc">[date TBC]</span></td>
+              <td>Matter referred to the Energy and Water Ombudsman (Victoria), who wrote to the
+                  provider requesting a response</td>
+              <td class="col-outcome">No response received</td>
+            </tr>
+            <tr>
+              <td><span class="tbc">[date TBC]</span></td>
+              <td>Six-month notice window for the current term closes</td>
+              <td class="col-outcome">Window closed</td>
+            </tr>
+            <tr>
+              <td><span class="tbc">[date TBC]</span></td>
+              <td>Notice of meeting and ballot issued to lot owners</td>
+              <td class="col-outcome">—</td>
+            </tr>
+            <tr>
+              <td><span class="tbc">[date TBC]</span></td>
+              <td>Voting closes</td>
+              <td class="col-outcome">—</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p class="muted">
+        As at <span class="tbc">[date TBC]</span>, no response has been received from the provider
+        to any of the above. If a response is received, this page will be updated to record it.
+      </p>
+
+      <h3>The notice period and the term of the agreement</h3>
+      <p>
+        The agreement provides that notice of termination must be given at least six months before
+        the end of the term, and that it otherwise renews automatically for a further five years.
+        The notice window for the current term closed on <span class="tbc">[date TBC]</span>,
+        before this vote could be held.
+      </p>
+      <p>
+        The Owners Corporation has obtained legal advice on the effect of that window closing and
+        on the provider's failure to respond. On that advice, the Committee is putting the
+        resolution to owners now.
+        <span class="tbc">[Summary of the solicitors' advice to be inserted.]</span>
+        The full advice is available to lot owners on request from the Owners Corporation Manager.
+      </p>
+      <p class="muted">
+        The Committee considers the termination, notice and renewal provisions of the agreement to
+        be unfair contract terms. That is the Committee's view. It has not been tested or
+        determined by a court or tribunal, and this vote does not decide it.
+      </p>
+    </section>
+
+    <section id="outcomes">
+      <h2>What each outcome means</h2>
+
+      <h3>If the resolution is passed</h3>
+      <ul>
+        <li>The Owners Corporation has the approval the agreement requires in order to terminate
+            it.</li>
+        <li>If the agreement is lawfully terminated, the Committee can then appoint a replacement
+            provider under its existing powers.</li>
+        <li>The provider may dispute the termination. If it does, the Owners Corporation would
+            need to respond, which may involve further legal cost.</li>
+        <li>Electricity supply to lots continues throughout any changeover. No action is required
+            inside individual lots.</li>
+      </ul>
+
+      <h3>If the resolution is not passed</h3>
+      <ul>
+        <li>The condition the agreement sets for termination is not met, and the agreement remains
+            in force.</li>
+        <li>It continues on its existing terms for the balance of the five-year renewal term.</li>
+        <li>A replacement provider cannot be appointed.</li>
+        <li>The next opportunity to terminate under the agreement's own terms would be the
+            six-month window before the end of that term, on <span class="tbc">[date TBC]</span>.</li>
+      </ul>
+    </section>
+
+    <section id="voting">
+      <h2>How the vote works</h2>
+
+      <p>
+        Voting is conducted under the <em>Owners Corporations Act 2006</em> (Vic) and the Owners
+        Corporation's rules. The following is a general summary. The notice of meeting is the
+        authoritative document.
+      </p>
+
+      <ul>
+        <li>A Special Resolution is passed where at least 75% of the total votes of the Owners
+            Corporation are cast in favour.</li>
+        <li>The 75% is measured against every lot in the plan, not only the lots that return a
+            ballot. An unreturned ballot counts toward the total but not toward the resolution.</li>
+        <li>Where fewer than half of the lots vote but 75% of the votes cast are in favour, the Act
+            provides for an interim special resolution, which may take effect after a further
+            period unless a sufficient number of lot owners object within it. Confirm with the
+            Owners Corporation Manager whether this applies to your vote.</li>
+        <li>Fees and charges owing on a lot can affect entitlement to vote.</li>
+        <li>You may vote in person, by proxy, or by the ballot method described in the notice of
+            meeting.</li>
+        <li>Voting closes <span class="tbc">[date TBC]</span>.</li>
+      </ul>
+
+      <p>
+        Owners are encouraged to review the information on this page before casting their vote. If
+        you require further information, or copies of any supporting documents, please contact the
+        Owners Corporation Manager or the Committee.
+      </p>
+    </section>
+
+    <section id="questions">
+      <h2>Questions and answers</h2>
+
+      <ol class="qa">
+        <li>
+          <h3>What is an embedded network?</h3>
+          <p>
+            An embedded network is a private electricity network within a building. The Owners
+            Corporation buys electricity at a single connection point and on-sells it to lots
+            through private meters, rather than each lot connecting separately to a grid retailer.
+            The arrangement at this property is an embedded network of that kind.
+          </p>
+        </li>
+
+        <li>
+          <h3>Does this resolution appoint a new provider?</h3>
+          <p>
+            No. It seeks approval to enable the Owners Corporation to terminate the existing
+            agreement. Appointing a replacement provider is a separate step, taken by the
+            Committee under its existing powers, and only if the agreement is lawfully terminated.
+          </p>
+        </li>
+
+        <li>
+          <h3>Has the deadline to terminate already passed?</h3>
+          <p>
+            The six-month notice window for the current term closed on
+            <span class="tbc">[date TBC]</span>, before the vote could be held. The Owners
+            Corporation issued its notice of termination and pursued it through its legal
+            representatives and the Ombudsman during that period, but received no response.
+          </p>
+        </li>
+
+        <li>
+          <h3>If the window has closed, what does a vote in favour achieve?</h3>
+          <p>
+            This is the question on which the Owners Corporation obtained legal advice. A
+            resolution in favour records the Owners Corporation's approval to terminate and
+            authorises the Committee to act on it. What follows depends on that advice and on
+            whether the provider responds. The full advice is available from the Owners
+            Corporation Manager, and owners who want certainty on this point should read it before
+            voting.
+          </p>
+        </li>
+
+        <li>
+          <h3>Why is a vote needed if the provider will not respond?</h3>
+          <p>
+            Termination must be valid on the agreement's own terms whether or not the other party
+            engages. Passing the resolution means the Owners Corporation has satisfied the
+            condition the agreement imposes.
+          </p>
+        </li>
+
+        <li>
+          <h3>Will electricity supply be interrupted?</h3>
+          <p>
+            A change of embedded network provider is an administrative and billing change. Supply
+            to lots is expected to continue throughout. If any work at the meter board required a
+            brief interruption, owners and residents would be given advance notice by the incoming
+            provider.
+          </p>
+        </li>
+
+        <li>
+          <h3>Is anything required inside my lot?</h3>
+          <p>
+            No. If the provider changes, owners and residents would receive account setup
+            information from the incoming provider directly. Final billing with the outgoing
+            provider would be handled through the Owners Corporation Manager.
+          </p>
+        </li>
+
+        <li>
+          <h3>Can I choose my own retailer instead?</h3>
+          <p>
+            Customers in embedded networks in Victoria generally retain a right to seek supply
+            from an external retailer, but in practice this depends on metering arrangements and
+            on a retailer being willing to offer a contract at the site. It is a separate question
+            from this resolution.
+          </p>
+        </li>
+
+        <li>
+          <h3>What will this cost the Owners Corporation?</h3>
+          <p>
+            Legal costs incurred to date are recorded in the Owners Corporation's accounts and are
+            available for inspection. If the resolution is passed and the provider disputes the
+            termination, further costs may be incurred. A written comparison of current and
+            proposed rates is issued with the meeting papers so that owners can assess the supply
+            cost difference themselves.
+          </p>
+        </li>
+
+        <li>
+          <h3>The Committee says the contract terms are unfair. Has that been determined?</h3>
+          <p>
+            No. That is the Committee's characterisation of the termination, notice and renewal
+            provisions. It has not been determined by a court or tribunal, and this vote does not
+            decide it.
+          </p>
+        </li>
+
+        <li>
+          <h3>I have a billing complaint about my own account. Where does that go?</h3>
+          <p>
+            Individual billing disputes are separate from this resolution. In Victoria they can be
+            raised with the Energy and Water Ombudsman (Victoria), which handles complaints from
+            customers of embedded networks at no cost to the customer. Raising a complaint does
+            not affect your vote.
+          </p>
+        </li>
+      </ol>
+    </section>
+
+    <section id="documents">
+      <h2>Documents and contacts</h2>
+
+      <p>
+        The following are held by the Owners Corporation Manager and are available to lot owners
+        on request.
+      </p>
+
+      <div class="table-scroll">
+        <table>
+          <colgroup>
+            <col style="width: 8.5rem">
+            <col>
+          </colgroup>
+          <thead>
+            <tr>
+              <th scope="col">Date</th>
+              <th scope="col">Document</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td><span class="tbc">[TBC]</span></td><td>Embedded electricity supply agreement</td></tr>
+            <tr><td><span class="tbc">[TBC]</span></td><td>Notice of termination</td></tr>
+            <tr><td><span class="tbc">[TBC]</span></td><td>Letter of Demand — legal representatives</td></tr>
+            <tr><td><span class="tbc">[TBC]</span></td><td>Ombudsman correspondence</td></tr>
+            <tr><td><span class="tbc">[TBC]</span></td><td>Legal advice on the closed notice window</td></tr>
+            <tr><td><span class="tbc">[TBC]</span></td><td>Proposal and rate comparison — proposed provider</td></tr>
+            <tr><td><span class="tbc">[TBC]</span></td><td>Notice of meeting and ballot</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>Who to contact</h3>
+      <ul class="contacts">
+        <li><strong>Owners Corporation Manager</strong> —
+            <span class="tbc">[name, company, email, phone TBC]</span>. Voting papers, document
+            requests, and questions about entitlement to vote.</li>
+        <li><strong>The Committee</strong> — <span class="tbc">[email TBC]</span>. Questions about
+            the resolution and the review.</li>
+        <li><strong>Energy and Water Ombudsman (Victoria)</strong> — free, independent complaints
+            service for electricity customers, including customers of embedded networks.</li>
+        <li><strong>Consumer Affairs Victoria</strong> — general information on owners
+            corporations, meetings and resolutions.</li>
+      </ul>
+    </section>
+
+    <section id="about">
+      <h2>About this page</h2>
+
+      <p>
+        This page accompanies the Committee's letter to all lot owners dated
+        <span class="tbc">[date TBC]</span>, and contains the chronological timeline, answers to
+        frequently asked questions, details of the relevant correspondence and documents, and
+        background information relating to the review.
+      </p>
+      <p>
+        Where a statement reflects the Committee's view rather than a documented event, it is
+        described as such. Every item can be checked against the underlying correspondence, which
+        the Owners Corporation Manager will provide on request.
+      </p>
+      <p>
+        If anything on this page is incorrect or out of date, please tell the Committee at
+        <span class="tbc">[email TBC]</span> and it will be corrected.
+      </p>
+    </section>
+
+  </main>
+
+  <footer>
+    <p>
+      Published by the Owners Corporation Committee, Owners Corporation 5/5A Winton Road,
+      Malvern East VIC, for the information of lot owners. This page is general information
+      about a resolution before the Owners Corporation. It is not legal advice, and it is not a
+      substitute for the notice of meeting. Owners who want advice about their own position
+      should obtain it independently.
+    </p>
+    <p>Last updated <span class="tbc">[date TBC]</span>.</p>
+  </footer>
+
+</div>
+</body>
+</html>
