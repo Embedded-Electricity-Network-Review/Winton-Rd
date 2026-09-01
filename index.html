@@ -292,7 +292,12 @@ section li::marker { color: var(--ink-3); }
   letter-spacing: -0.022em;
   max-width: 32ch;
 }
-.resolution .muted { max-width: var(--measure); }
+.resolution .body { max-width: var(--measure); }
+.resolution .muted {
+  max-width: var(--measure);
+  border-top: 1px solid var(--rule);
+  padding-top: 0.75rem;
+}
 
 /* ---------- does / does not ---------- */
 .pair {
@@ -516,11 +521,23 @@ footer {
       <div class="resolution">
         <span class="label">The resolution put to owners</span>
         <p class="text">
-          Should the owners corporation terminate its embedded electricity supply agreement?
+          Should the Owners Corporation terminate its existing embedded electricity supply
+          agreement?
+        </p>
+        <p class="body">
+          Information now available indicates that the agreement was entered into
+          <strong>without the knowledge of individual lot owners prior to their entering into
+          contracts of sale</strong>, and without clear disclosure to the Owners Corporation for
+          its records.
+        </p>
+        <p class="body">
+          This is significant because the agreement creates an ongoing obligation affecting the
+          property and its owners. The current Special Resolution therefore provides owners with
+          an opportunity to formally consider whether the Owners Corporation should continue with
+          an arrangement that was not clearly disclosed to owners at the time they purchased their
+          lots.
         </p>
         <p class="muted">
-          <span class="tbc">[Final wording to be inserted — to be settled by the owners
-          corporation's solicitors before the notice of meeting issues.]</span>
           The wording that appears on your ballot paper is the wording that binds. Please read it
           before you vote.
         </p>
