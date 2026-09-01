@@ -124,9 +124,9 @@ a { color: var(--accent); text-underline-offset: 0.18em; text-decoration-thickne
     padding-top: 3.5rem;
   }
   .masthead { grid-area: 1 / 2; }
-  .notice   { grid-area: 2 / 2; }
+  .guide    { grid-area: 2 / 2; }
   .summary  { grid-area: 3 / 2; }
-  .toc      { grid-area: 3 / 1 / 6 / 2; position: sticky; top: 3.5rem; align-self: start; }
+  .toc      { grid-area: 2 / 1 / 6 / 2; position: sticky; top: 3.5rem; align-self: start; }
   main      { grid-area: 4 / 2; }
   footer    { grid-area: 5 / 2; }
 }
@@ -172,15 +172,46 @@ h1 {
   max-width: var(--measure);
 }
 
+/* ---------- quick guide ---------- */
+.guide { margin-top: 1.75rem; }
+.guide h2 { margin-bottom: 0.8rem; }
+.guide dl { display: flex; flex-direction: column; border-top: 1px solid var(--rule); margin: 0; }
+.guide dl > div {
+  border-bottom: 1px solid var(--rule);
+  padding: 0.85rem 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+.guide dt { font-weight: 700; font-size: var(--fs-sm); color: var(--ink); }
+.guide dd {
+  margin: 0;
+  color: var(--ink-2);
+  font-size: var(--fs-sm);
+  max-width: var(--measure);
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.guide .closes {
+  margin-top: 0.9rem;
+  font-size: var(--fs-sm);
+  color: var(--ink);
+}
+
 /* ---------- summary ---------- */
 .summary {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
   margin-top: 1.9rem;
   background: var(--paper-2);
   border-top: 2px solid var(--ink);
   border-bottom: 1px solid var(--rule-2);
   padding: 1.2rem 1.4rem 1.4rem;
 }
-.summary h2 { margin-bottom: 0.85rem; }
+.summary h2 { margin-bottom: 0.1rem; }
+.summary p { font-size: var(--fs-sm); max-width: var(--measure); }
 .summary ul {
   padding: 0;
   list-style: none;
@@ -408,14 +439,6 @@ td:last-child, th:last-child { padding-right: 0; }
 .contacts .who { display: block; font-weight: 700; color: var(--ink); font-size: var(--fs-base); }
 .contacts .val { display: block; margin: 0.15rem 0 0.2rem; }
 
-/* single-column document list: no date column, so no monospace first cell */
-.doc-table td:first-child {
-  font-family: inherit;
-  font-size: inherit;
-  color: var(--ink);
-  white-space: normal;
-  padding-top: 0.7rem;
-}
 
 /* ---------- placeholders awaiting real data ---------- */
 .tbc {
@@ -469,7 +492,6 @@ footer {
   .tbc { background: none; border-bottom: 1px dotted #888; }
 }
 </style>
-
 <div class="doc">
 
   <header class="masthead">
@@ -477,64 +499,114 @@ footer {
     <p class="sub">Information for Owners – 5/5A Winton Road, Malvern East</p>
   </header>
 
-  <div class="notice">
-    <p>
-      This page has been prepared by the Owners Corporation Committee as a factual information
-      resource to assist owners in understanding the proposed Special Resolution and making an
-      informed decision.
-    </p>
-    <p>
-      It sets out the relevant background, the steps taken by the Committee, the current position
-      regarding the existing agreement, the voting process and the documents available to owners.
-    </p>
-    <p>
-      Where a statement represents the Committee's view or a position put forward by the Owners
-      Corporation's legal representatives, it is identified as such. The page is not intended to
-      advocate for or against the resolution.
-    </p>
+  <div class="guide">
+    <h2 class="label">A quick guide to the decision</h2>
+    <dl>
+      <div>
+        <dt>What are owners being asked to vote on?</dt>
+        <dd><p>Whether the Owners Corporation should terminate its existing embedded electricity
+            supply agreement.</p></dd>
+      </div>
+      <div>
+        <dt>Why is this being proposed?</dt>
+        <dd>
+          <p>The Committee has reviewed the existing arrangement over a number of years and
+             considers that the Owners Corporation should have greater control and choice over its
+             electricity supply arrangements.</p>
+          <p>If the existing agreement is lawfully terminated, the Owners Corporation can consider
+             alternative providers and seek competitive rates and terms for the <strong>entire
+             complex — benefiting both owners and tenants</strong>.</p>
+        </dd>
+      </div>
+      <div>
+        <dt>Does this vote appoint a new provider?</dt>
+        <dd><p><strong>No.</strong> The resolution only concerns termination of the existing
+            agreement. Origin Energy has been identified as the Committee's preferred replacement
+            provider, but any appointment would be a separate decision.</p></dd>
+      </div>
+      <div>
+        <dt>Why is a Special Resolution required?</dt>
+        <dd><p>The existing agreement includes a requirement for a Special Resolution to approve its
+            termination. The Committee's position, based on legal advice, is that this requirement
+            is an unfair and void contractual term. The Committee has nevertheless put the Special
+            Resolution to owners.</p></dd>
+      </div>
+      <div>
+        <dt>What happens if the resolution passes?</dt>
+        <dd><p>The Committee can proceed with the next steps to terminate the existing agreement
+            and, if it is lawfully terminated, consider appointing a replacement provider.</p></dd>
+      </div>
+      <div>
+        <dt>What happens if it does not pass?</dt>
+        <dd><p>The existing agreement remains in place unless and until it is otherwise brought to
+            an end. The Committee will retain the ability to consider and pursue other legal
+            options available to the Owners Corporation.</p></dd>
+      </div>
+      <div>
+        <dt>What has happened so far?</dt>
+        <dd><p>The Committee issued a notice of termination. After more than 30 days without a
+            response, the Owners Corporation engaged legal representatives and issued a Letter of
+            Demand. A response was subsequently received but did not provide a meaningful response
+            to the matters raised, requiring further legal communication. The matter was also
+            referred to EWOV, which has assigned an investigator.</p></dd>
+      </div>
+    </dl>
+    <p class="closes"><strong>Voting closes:</strong> Thursday 13 August 2026 at 5 PM.</p>
   </div>
 
   <div class="summary">
     <h2 class="label">In summary</h2>
+    <p>
+      Owners are being asked to approve a <strong>Special Resolution to terminate the property's
+      existing embedded electricity supply agreement</strong>.
+    </p>
+    <p>The resolution:</p>
     <ul>
-      <li>Owners are being asked to approve a <strong>Special Resolution to terminate the
-          property's existing embedded electricity supply agreement</strong>.</li>
-      <li>The resolution <strong>does not appoint a new electricity provider</strong>. If the
-          existing agreement is lawfully terminated, the Committee will appoint a replacement
-          provider under its existing powers.</li>
-      <li>The existing agreement includes a requirement for a <strong>Special Resolution to
-          approve its termination</strong>. This contractual requirement is why owners are being
-          asked to vote.</li>
-      <li>A Special Resolution requires <strong>at least 75% of the total votes of the Owners
-          Corporation</strong>, subject to the voting process applicable to this resolution.</li>
-      <li>The Committee has taken a number of steps concerning termination, including issuing a
-          notice of termination and, after receiving no response for more than 30 days, engaging
-          legal representatives to issue a Letter of Demand. A response was subsequently received,
-          but it <strong>did not provide a meaningful response to the matters raised</strong> and
-          required further legal communication.</li>
-      <li>The matter has also been referred to the <strong>Energy and Water Ombudsman Victoria
-          (EWOV)</strong>. EWOV has assigned an investigator and its enquiries are continuing.</li>
-      <li>The purpose of seeking termination is to give the Owners Corporation <strong>greater
-          control over its electricity supply arrangements and the ability to consider competitive
-          rates, terms and service arrangements</strong> for the complex. This provides an
-          opportunity to seek to reduce electricity costs for owners and tenants.</li>
-      <li>The resolution itself <strong>does not select or appoint a replacement provider</strong>.
-          Origin Energy has been identified by the Committee as its preferred replacement provider,
-          but any appointment would be a separate step following lawful termination of the existing
-          agreement.</li>
-      <li><strong>Voting closes:</strong> Thursday 13 August 2026 at 5 PM.</li>
+      <li>concerns <strong>termination only</strong>;</li>
+      <li>does <strong>not appoint a new electricity provider</strong>;</li>
+      <li>is being put to owners because the existing agreement includes a requirement for a
+          Special Resolution to approve termination; and</li>
+      <li>provides the Owners Corporation with the opportunity to proceed with termination and
+          consider alternative electricity supply arrangements.</li>
     </ul>
+    <p>
+      The Committee's objective is to have <strong>greater control and choice over the electricity
+      provider for the entire complex</strong>, allowing the Owners Corporation to consider
+      competitive rates and terms and seek opportunities to reduce electricity costs for owners and
+      tenants.
+    </p>
+    <p>
+      The Committee has taken steps to terminate the existing agreement, including issuing a Notice
+      of Termination, pursuing the matter through legal representatives after more than 30 days
+      without a response, and referring the matter to the <strong>Energy and Water Ombudsman
+      Victoria (EWOV)</strong>.
+    </p>
+    <p>
+      The Committee's current position, based on legal advice, is that the contractual requirement
+      for a Special Resolution is an <strong>unfair and void term</strong>, and that the six-month
+      written notice requirement was satisfied by the Notice of Termination issued by the Owners
+      Corporation.
+    </p>
+    <p>
+      The resolution does not determine those legal issues. If necessary, the Committee may pursue
+      further legal options on behalf of the Owners Corporation.
+    </p>
+    <p>
+      <strong>The wording on the ballot paper is the wording that governs the vote. Owners should
+      read the notice of meeting and ballot before voting.</strong>
+    </p>
   </div>
 
   <nav class="toc" aria-label="Contents">
     <h2 class="label">Contents</h2>
     <ol>
       <li><a href="#approve">What owners are being asked to approve</a></li>
-      <li><a href="#background">Background to the review</a></li>
+      <li><a href="#why-review">Why the review was undertaken</a></li>
+      <li><a href="#objective">What the Committee is seeking to achieve</a></li>
       <li><a href="#steps">Steps taken to date</a></li>
-      <li><a href="#notice-period">The notice period and term of the agreement</a></li>
-      <li><a href="#legal">Legal position raised by the Owners Corporation</a></li>
-      <li><a href="#outcomes">What each outcome means</a></li>
+      <li><a href="#agreement">The agreement and notice period</a></li>
+      <li><a href="#legal">The Committee's legal position</a></li>
+      <li><a href="#outcomes">What each voting outcome means</a></li>
       <li><a href="#voting">How the vote works</a></li>
       <li><a href="#questions">Questions and answers</a></li>
       <li><a href="#documents">Documents and contacts</a></li>
@@ -549,8 +621,11 @@ footer {
 
       <p class="lead">
         The property is supplied through an embedded electricity network under an agreement with
-        Shine Power. Owners are being asked to approve a Special Resolution concerning termination
-        of that agreement.
+        Shine Power.
+      </p>
+      <p>
+        Owners are being asked to approve a Special Resolution concerning termination of that
+        agreement.
       </p>
 
       <div class="resolution">
@@ -559,22 +634,9 @@ footer {
           Should the Owners Corporation terminate its existing embedded electricity supply
           agreement?
         </p>
-        <p class="body">
-          Information currently available to the Committee indicates that individual lot owners
-          were not aware of the agreement before entering into their contracts of sale.
-        </p>
-        <p class="body">
-          The Committee has also not identified a clear record showing that the agreement was
-          disclosed to the Owners Corporation for its records at that time.
-        </p>
-        <p class="body">
-          The agreement creates an ongoing contractual arrangement concerning electricity supply to
-          the property. The current resolution gives owners the opportunity to consider whether the
-          Owners Corporation should seek to terminate that arrangement.
-        </p>
         <p class="muted">
-          The wording that appears on your ballot paper is the wording that governs the vote.
-          Owners should read the ballot wording and notice of meeting before voting.
+          The wording on the ballot paper is the wording that governs the vote. Owners should read
+          the ballot wording and notice of meeting before voting.
         </p>
       </div>
 
@@ -596,21 +658,10 @@ footer {
           </dd>
         </div>
       </dl>
-
-      <h3>Why owners are being asked to vote</h3>
-      <p>
-        The existing agreement includes a contractual requirement for a <strong>Special Resolution
-        to approve its termination</strong>.
-      </p>
-      <p>
-        The appointment of an electricity provider is a separate matter from termination of the
-        existing agreement. The Special Resolution is therefore being put to owners because of the
-        requirement contained in the existing agreement.
-      </p>
     </section>
 
-    <section id="background">
-      <h2>Background to the review</h2>
+    <section id="why-review">
+      <h2>Why the review was undertaken</h2>
 
       <p>
         Over a number of years, both the previous Committee and the current Committee have
@@ -627,35 +678,43 @@ footer {
             with that generation.</li>
       </ul>
 
-      <h3>Supply has remained reliable</h3>
       <p>
-        The Committee acknowledges that the embedded electricity network has continued to provide
-        electricity to the property.
+        The embedded network has continued to provide electricity to the property. The review has
+        therefore focused on the <strong>contractual, financial and governance aspects</strong> of
+        the arrangement rather than continuity of supply.
       </p>
+    </section>
+
+    <section id="objective">
+      <h2>What the Committee is seeking to achieve</h2>
+
       <p>
-        The review has therefore focused on the <strong>contractual, financial and governance
-        aspects of the arrangement</strong>, rather than on the continuity of electricity supply.
+        The Committee's objective is to give the Owners Corporation <strong>greater control and
+        choice over its electricity supply arrangements</strong>.
       </p>
 
-      <h3>Why is the Owners Corporation seeking greater choice?</h3>
       <p>
-        The purpose of the review is to give the Owners Corporation greater control over its
-        electricity supply arrangements.
+        If the existing agreement is lawfully terminated, the Owners Corporation can consider
+        alternative providers and compare:
       </p>
+      <ul>
+        <li>electricity rates;</li>
+        <li>pricing structures;</li>
+        <li>contractual terms;</li>
+        <li>service arrangements; and</li>
+        <li>the overall value offered to the complex.</li>
+      </ul>
+
       <p>
-        If the existing agreement is lawfully terminated, the Owners Corporation would be able to
-        consider alternative providers and compare rates, terms and service arrangements.
-      </p>
-      <p>
-        This creates an opportunity to seek <strong>competitive electricity costs for the entire
-        complex</strong>, including arrangements that benefit both owners and tenants.
+        This creates an opportunity to seek competitive electricity costs for the <strong>entire
+        complex</strong>, including both owner-occupied and tenanted lots.
       </p>
       <p>
         The Committee does not represent that a particular saving or rate is guaranteed. Any future
-        rates, costs or benefits would depend on the provider and arrangements ultimately selected.
+        costs or benefits will depend on the provider and arrangements ultimately selected.
       </p>
 
-      <h3>The proposed replacement provider</h3>
+      <h3>Proposed replacement provider</h3>
       <p>
         The Committee has identified <strong>Origin Energy</strong> as its preferred replacement
         provider.
@@ -664,9 +723,10 @@ footer {
         Origin currently manages the property's embedded hot water service and has offered
         discounts on that basis.
       </p>
+      <p>Importantly, <strong>Origin is not being appointed by this vote</strong>.</p>
       <p>
-        The proposed appointment of Origin is <strong>not part of the Special Resolution</strong>.
-        No replacement provider is appointed by the resolution itself.
+        Any appointment of a replacement provider would be a separate step following lawful
+        termination of the existing agreement.
       </p>
     </section>
 
@@ -676,13 +736,9 @@ footer {
       <p>
         The Committee has taken a number of steps concerning termination of the existing agreement.
       </p>
-      <p>
-        The relevant correspondence and supporting documents are held by the Owners Corporation
-        Manager and are available to lot owners on request.
-      </p>
 
       <h3>Notice of termination</h3>
-      <p>The Committee issued a formal notice of termination to the provider.</p>
+      <p>The Committee issued a formal Notice of Termination to the provider.</p>
       <p>No response was received for more than 30 days.</p>
 
       <h3>Legal correspondence</h3>
@@ -690,11 +746,10 @@ footer {
         Following the absence of a response, the Owners Corporation engaged legal representatives
         to pursue the matter.
       </p>
-      <p>The legal representatives issued a Letter of Demand.</p>
+      <p>A Letter of Demand was issued.</p>
       <p>
-        A response was subsequently received from the provider. The Owners Corporation's legal
-        representatives considered that the response <strong>did not provide a meaningful response
-        to the matters raised</strong>, and further legal communication was required.
+        A response was subsequently received from the provider. The response did not provide a
+        meaningful response to the matters raised and further legal communication was required.
       </p>
 
       <h3>Energy and Water Ombudsman Victoria</h3>
@@ -706,124 +761,105 @@ footer {
         EWOV contacted the provider seeking a response and has assigned an investigator to the
         matter.
       </p>
-      <p>The enquiries are continuing and the outcome is not yet known.</p>
-      <p>The Committee will update owners if further material information is received.</p>
+      <p>Those enquiries are continuing. The outcome is not yet known.</p>
+      <p>The Committee will update owners if further material information becomes available.</p>
     </section>
 
-    <section id="notice-period">
-      <h2>The notice period and term of the agreement</h2>
+    <section id="agreement">
+      <h2>The agreement and notice period</h2>
 
       <p>
-        The existing agreement provides for a six-month written notice period before the end of the
+        The existing agreement provides for six months' written notice before the end of the
         relevant term.
       </p>
       <p>It also contains an automatic renewal provision for a further five-year term.</p>
-      <p>The six-month notice window for the current term closed on 26 June 2026.</p>
       <p>
-        The Owners Corporation obtained legal advice concerning the notice period, the renewal
-        provisions and the contractual requirement for a Special Resolution.
+        The six-month notice window for the current term closed on <strong>26 June 2026</strong>.
       </p>
       <p>
-        The legal advice is available to lot owners on request from the Owners Corporation Manager.
+        The Owners Corporation issued its Notice of Termination during the relevant notice period.
       </p>
-      <p>The legal position concerning these provisions is outlined below.</p>
+      <p>
+        The Owners Corporation has obtained legal advice concerning the notice period, renewal
+        provisions and the requirement for a Special Resolution.
+      </p>
+      <p>The Committee's position, based on that advice, is outlined below.</p>
     </section>
 
     <section id="legal">
-      <h2>Legal position raised by the Owners Corporation</h2>
+      <h2>The Committee's legal position</h2>
 
       <p>
-        The Owners Corporation's legal representatives have raised concerns with Shine Power
-        regarding several provisions of the existing agreement.
+        The Committee has been legally advised in relation to a number of provisions of the
+        existing agreement.
       </p>
       <p>
-        In correspondence to Shine, the Owners Corporation's lawyers stated that they consider
-        particular provisions of the agreement to be <strong>unfair and therefore void and
-        unenforceable</strong>.
+        Based on that advice, the Committee's position is that several provisions are <strong>unfair
+        contractual terms and are therefore void and unenforceable</strong>.
       </p>
 
-      <p>The provisions identified include:</p>
+      <p>These include provisions concerning:</p>
       <ul>
-        <li><strong>Clause 11.2</strong>, concerning automatic renewal of the agreement;</li>
-        <li><strong>Clause 11.2(b)(i)</strong>, which requires the Owners Corporation to pass a
-            Special Resolution before giving notice;</li>
-        <li><strong>Clause 12.3</strong>, concerning 90 days' notice for Shine to terminate without
-            cause; and</li>
-        <li><strong>Clause 12.2</strong>, concerning Shine's discretion not to provide services
-            during an alleged default.</li>
+        <li>automatic renewal of the agreement;</li>
+        <li>the requirement for a Special Resolution before the Owners Corporation can give notice
+            of termination;</li>
+        <li>the 90-day notice provision applying to Shine's termination without cause; and</li>
+        <li>Shine's discretion not to provide services during an alleged default.</li>
       </ul>
 
       <p>
-        The Owners Corporation's legal representatives have also disputed Shine's position that the
-        renewal term provides the tenure certainty necessary to justify and recover its capital
-        investment.
+        The Committee's position also takes into account the allocation of ownership, maintenance
+        and insurance responsibilities under the agreement, including the Owners Corporation's
+        responsibilities concerning the embedded network infrastructure and Shine's equipment.
       </p>
 
-      <p>Their correspondence refers to provisions of the agreement under which they state that:</p>
-      <ul>
-        <li>the Owners Corporation owns the embedded network infrastructure;</li>
-        <li>the Owners Corporation maintains that infrastructure at its own cost;</li>
-        <li>the Owners Corporation pays for maintenance and upgrades to Shine's equipment; and</li>
-        <li>the Owners Corporation insures Shine's equipment.</li>
-      </ul>
-
+      <h3>The Special Resolution requirement</h3>
       <p>
-        The legal correspondence refers to section 24(4) of the <strong>Australian Consumer
-        Law</strong> and to previous Federal Court decisions concerning unfair terms in
-        standard-form contracts.
-      </p>
-
-      <h3>The Special Resolution precondition</h3>
-      <p>
-        The Owners Corporation's legal representatives have specifically challenged the requirement
-        in clause 11.2(b)(i) for a Special Resolution before notice of termination can be given.
+        The Committee's position is that the requirement in clause 11.2(b)(i) for a Special
+        Resolution before notice of termination can be given is an <strong>unfair and void
+        contractual term</strong>.
       </p>
       <p>
-        They have advised that they consider this requirement to be an <strong>unfair and void
-        contractual term</strong>, and have characterised it as a term that operates to restrict an
-        Owners Corporation's ability to terminate the agreement.
+        The Committee considers that this requirement operates to restrict the Owners Corporation's
+        ability to terminate the agreement.
       </p>
       <p>
-        They have also advised that clause 11.2(b) requires six months' written notice and that the
-        Notice of Termination issued by the Owners Corporation provided that notice.
+        The Committee's position is also that clause 11.2(b) requires six months' written notice and
+        that the Notice of Termination issued by the Owners Corporation provided that notice.
       </p>
 
       <h3>Important qualification</h3>
       <p>
-        The statements in this section describe the legal position put forward by the Owners
-        Corporation's legal representatives.
+        This is the <strong>Committee's position based on legal advice received by the Owners
+        Corporation</strong>.
+      </p>
+      <p>It is not presented as a determination by a court or tribunal.</p>
+      <p>
+        If the provider disputes the Owners Corporation's position, the matter may require further
+        legal action or determination by an appropriate court or tribunal.
       </p>
       <p>
-        They are <strong>not presented as a determination by a court or tribunal</strong>.
-      </p>
-      <p>
-        Whether any particular contractual term is unfair, void or unenforceable is ultimately a
-        matter of law and, if disputed, may require determination by an appropriate court or
-        tribunal.
-      </p>
-      <p>
-        The full legal correspondence is available to lot owners on request from the Owners
-        Corporation Manager.
+        The relevant legal correspondence and advice are available to lot owners on request from the
+        Owners Corporation Manager.
       </p>
     </section>
 
     <section id="outcomes">
-      <h2>What each outcome means</h2>
+      <h2>What each voting outcome means</h2>
 
       <h3>If the resolution is passed</h3>
       <ul>
-        <li>The Owners Corporation will have passed the Special Resolution requested under the
+        <li>The Owners Corporation will have passed the Special Resolution sought in relation to the
             existing agreement.</li>
-        <li>The Committee can then proceed with the next steps concerning termination, subject to
-            the legal position and the terms of the agreement.</li>
+        <li>The Committee can proceed with the next steps concerning termination.</li>
         <li>If the agreement is lawfully terminated, the Committee can consider and appoint a
             replacement provider under its existing powers.</li>
-        <li>The resolution itself does not appoint Origin Energy or any other provider.</li>
+        <li>The resolution itself does <strong>not</strong> appoint Origin Energy or any other
+            provider.</li>
         <li>The existing provider may dispute the termination. If that occurs, the Owners
             Corporation may need to respond and may incur further legal costs.</li>
         <li>The Committee's intention is for electricity supply to continue throughout any
-            changeover. Any operational requirements associated with a provider change would be
-            communicated to affected owners and residents.</li>
+            changeover.</li>
       </ul>
 
       <h3>If the resolution is not passed</h3>
@@ -838,19 +874,12 @@ footer {
         <li>A vote against the resolution would <strong>not prevent the Owners Corporation from
             considering or pursuing other legal options</strong> in relation to the existing
             agreement.</li>
-        <li>The Owners Corporation's legal representatives have advised that they consider the
-            Special Resolution requirement in clause 11.2(b)(i) to be an <strong>unfair and void
-            contractual term</strong>.</li>
-        <li>They have also advised that clause 11.2(b) requires six months' written notice and that
-            the Notice of Termination issued by the Owners Corporation provided that notice.</li>
-        <li>If the resolution is not passed, the Committee will consider the legal options available
-            to the Owners Corporation, including whether further legal action is appropriate.</li>
+        <li>The Committee's position remains that the Special Resolution requirement is an unfair
+            and void contractual term and that the six-month written notice requirement was
+            satisfied by the Notice of Termination.</li>
+        <li>The Committee will consider the legal options available to the Owners Corporation if the
+            resolution is not passed.</li>
       </ul>
-
-      <p class="muted">
-        The legal position described above is the position advanced by the Owners Corporation's
-        legal representatives. It has not been determined by a court or tribunal.
-      </p>
     </section>
 
     <section id="voting">
@@ -864,21 +893,16 @@ footer {
         The notice of meeting and ballot is the authoritative document for this particular vote.
       </p>
 
-      <p>In general:</p>
+      <p>Owners should:</p>
       <ul>
-        <li>The voting threshold for a Special Resolution is determined under the Act and depends on
-            the voting process being used.</li>
-        <li>Owners should follow the instructions accompanying their ballot.</li>
-        <li>Owners may vote using the method specified in the notice of meeting.</li>
-        <li>Questions about voting entitlement or the ballot process should be directed to the
-            Owners Corporation Manager.</li>
+        <li>read the resolution carefully;</li>
+        <li>follow the voting instructions provided with the ballot;</li>
+        <li>ensure their vote is submitted before the closing time; and</li>
+        <li>contact the Owners Corporation Manager with any questions about voting entitlement or
+            the ballot process.</li>
       </ul>
 
       <p><strong>Voting closes: Thursday 13 August 2026 at 5 PM.</strong></p>
-      <p>
-        Owners are encouraged to review the notice of meeting, ballot wording and supporting
-        documents before voting.
-      </p>
     </section>
 
     <section id="questions">
@@ -901,10 +925,10 @@ footer {
         <li>
           <h3>Does this resolution appoint a new provider?</h3>
           <p><strong>No.</strong></p>
+          <p>The resolution concerns termination of the existing agreement.</p>
           <p>
-            The resolution concerns termination of the existing agreement. If that agreement is
-            lawfully terminated, the Committee can then consider appointing a replacement provider
-            under its existing powers.
+            If the agreement is lawfully terminated, the Committee can then consider appointing a
+            replacement provider under its existing powers.
           </p>
         </li>
 
@@ -913,8 +937,11 @@ footer {
           <p><strong>No.</strong></p>
           <p>
             Origin Energy has been identified by the Committee as its preferred replacement
-            provider. Any appointment would be a separate decision following lawful termination of
-            the existing agreement.
+            provider.
+          </p>
+          <p>
+            Any appointment would be a separate decision following lawful termination of the
+            existing agreement.
           </p>
         </li>
 
@@ -924,60 +951,55 @@ footer {
             The existing agreement includes a contractual requirement for a Special Resolution to
             approve its termination.
           </p>
-          <p>That contractual requirement is why the matter has been put to owners.</p>
+          <p>That requirement is why the matter has been put to owners.</p>
           <p>
-            The Owners Corporation's legal representatives have separately advised that they
-            consider this requirement to be an unfair and void term. That legal position has not
-            been determined by a court or tribunal.
+            The Committee's position, based on legal advice, is that this contractual requirement is
+            an unfair and void term.
           </p>
         </li>
 
         <li>
           <h3>Has the six-month notice window closed?</h3>
+          <p>Yes.</p>
           <p>
-            Yes. The six-month notice window for the current term closed on
+            The six-month notice window for the current term closed on
             <strong>26 June 2026</strong>.
           </p>
           <p>
-            The Owners Corporation issued its Notice of Termination and subsequently pursued the
-            matter through its legal representatives and EWOV.
+            The Owners Corporation issued its Notice of Termination during the relevant notice
+            period.
           </p>
         </li>
 
         <li>
           <h3>If the notice window has closed, what is the effect?</h3>
           <p>
-            The Owners Corporation's legal representatives have advised that the existing agreement
-            requires six months' written notice and that the Notice of Termination issued by the
-            Owners Corporation provided that notice.
+            The Committee's position, based on legal advice, is that the six-month written notice
+            requirement was satisfied by the Notice of Termination.
           </p>
           <p>
-            They have also advised that the requirement in clause 11.2(b)(i) for a Special
-            Resolution before notice can be given is an <strong>unfair and void contractual
-            term</strong>.
-          </p>
-          <p>The legal position has not been determined by a court or tribunal.</p>
-          <p>
-            The Committee is therefore seeking the Special Resolution while preserving the Owners
-            Corporation's ability to pursue any further legal options that may be available.
+            The Committee also considers the requirement for a Special Resolution before notice
+            could be given to be an unfair and void contractual term.
           </p>
           <p>
-            The full legal correspondence is available to lot owners on request from the Owners
-            Corporation Manager.
+            These are legal positions that have not been determined by a court or tribunal.
+          </p>
+          <p>
+            The Committee is seeking the Special Resolution while retaining the ability to pursue
+            further legal options available to the Owners Corporation.
           </p>
         </li>
 
         <li>
           <h3>Why has the Owners Corporation involved lawyers?</h3>
-          <p>The Committee initially issued a notice of termination.</p>
+          <p>The Committee initially issued a Notice of Termination.</p>
           <p>
             After more than 30 days without a response, the Owners Corporation engaged legal
             representatives to pursue the matter.
           </p>
           <p>
-            A response was subsequently received. The Owners Corporation's legal representatives
-            considered that it did not provide a meaningful response to the matters raised, and
-            further legal communication was required.
+            A response was subsequently received. It did not provide a meaningful response to the
+            matters raised, and further legal communication was required.
           </p>
         </li>
 
@@ -1019,13 +1041,16 @@ footer {
         <li>
           <h3>Why is the Committee seeking to change the provider?</h3>
           <p>
-            The objective is to give the Owners Corporation greater control over its electricity
-            supply arrangements and the ability to consider alternative providers, rates and service
-            arrangements.
+            The objective is to give the Owners Corporation greater control and choice over its
+            electricity supply arrangements.
           </p>
           <p>
-            This creates an opportunity to seek competitive electricity costs for the entire
-            complex, including arrangements that benefit both owners and tenants.
+            This would allow the Owners Corporation to consider alternative providers and compare
+            rates, terms and service arrangements.
+          </p>
+          <p>
+            The aim is to create an opportunity to seek competitive electricity costs for the entire
+            complex, including both owners and tenants.
           </p>
           <p>The Committee does not represent that a particular saving or rate is guaranteed.</p>
         </li>
@@ -1037,8 +1062,8 @@ footer {
             financial benefits associated with that generation.
           </p>
           <p>
-            The Committee's objective is to ensure that future electricity arrangements provide an
-            appropriate basis for considering how those benefits are realised for the property.
+            The Committee's objective is that future electricity arrangements provide an appropriate
+            basis for considering how those benefits are realised for the property.
           </p>
           <p>Relevant supporting information is available from the Owners Corporation Manager.</p>
         </li>
@@ -1056,25 +1081,11 @@ footer {
         </li>
 
         <li>
-          <h3>The Committee's lawyers say some terms are unfair. Has that been determined?</h3>
-          <p><strong>No.</strong></p>
-          <p>
-            The Owners Corporation's legal representatives have expressed the view that particular
-            provisions of the agreement are unfair and may be void or unenforceable.
-          </p>
-          <p>
-            That is a legal position advanced on behalf of the Owners Corporation. It has not been
-            presented on this page as a determination by a court or tribunal.
-          </p>
-          <p>The relevant legal correspondence is available to owners on request.</p>
-        </li>
-
-        <li>
           <h3>Can owners see the supporting documents?</h3>
           <p>Yes.</p>
           <p>
-            The documents listed below are held by the Owners Corporation Manager and are available
-            to lot owners on request.
+            The relevant documents are held by the Owners Corporation Manager and are available to
+            lot owners on request.
           </p>
         </li>
       </ol>
@@ -1086,26 +1097,18 @@ footer {
       <p>
         The following documents are available to lot owners from the Owners Corporation Manager:
       </p>
-
-      <div class="table-scroll">
-        <table class="doc-table">
-          <thead>
-            <tr><th scope="col">Document</th></tr>
-          </thead>
-          <tbody>
-            <tr><td>Existing embedded electricity supply agreement</td></tr>
-            <tr><td>Notice of termination</td></tr>
-            <tr><td>Letter of Demand issued by legal representatives</td></tr>
-            <tr><td>Response from Shine Power</td></tr>
-            <tr><td>Further legal correspondence</td></tr>
-            <tr><td>EWOV correspondence</td></tr>
-            <tr><td>Legal advice concerning the notice period and renewal</td></tr>
-            <tr><td>Legal correspondence concerning the contractual terms</td></tr>
-            <tr><td>Proposal and rate comparison — proposed provider</td></tr>
-            <tr><td>Notice of meeting and ballot</td></tr>
-          </tbody>
-        </table>
-      </div>
+      <ul>
+        <li>Existing embedded electricity supply agreement</li>
+        <li>Notice of Termination</li>
+        <li>Letter of Demand issued by legal representatives</li>
+        <li>Response from Shine Power</li>
+        <li>Further legal correspondence</li>
+        <li>EWOV correspondence</li>
+        <li>Legal advice concerning the notice period and renewal</li>
+        <li>Legal correspondence concerning the contractual terms</li>
+        <li>Proposal and rate comparison for the proposed provider</li>
+        <li>Notice of meeting and ballot</li>
+      </ul>
 
       <h3>Who to contact</h3>
       <ul class="contacts">
@@ -1138,22 +1141,25 @@ footer {
         owners.
       </p>
       <p>
-        It accompanies the Committee's communication concerning the proposed Special Resolution and
-        provides background information, a summary of documented actions, answers to common
-        questions and information about supporting documents.
+        Its purpose is to explain the proposed Special Resolution, provide relevant background,
+        summarise the steps taken by the Committee and identify the documents available to owners.
       </p>
 
-      <p>The page distinguishes, where relevant, between:</p>
+      <p>The page distinguishes between:</p>
       <ul>
         <li>documented events;</li>
         <li>information contained in the existing agreement;</li>
-        <li>positions put forward by the Owners Corporation's legal representatives; and</li>
-        <li>the Committee's stated objectives and views.</li>
+        <li>the Committee's position; and</li>
+        <li>matters that remain subject to legal or other determination.</li>
       </ul>
 
       <p>
-        The page is not intended to provide legal advice or to determine the legal rights of the
-        Owners Corporation, lot owners or the provider.
+        The Committee's stated legal position is based on legal advice received by the Owners
+        Corporation. It is not presented as a determination by a court or tribunal.
+      </p>
+      <p>
+        This page is not legal advice and is not intended to determine the legal rights of the
+        Owners Corporation, individual lot owners or the provider.
       </p>
       <p>
         The <strong>notice of meeting and ballot wording remain the authoritative documents for the
@@ -1173,7 +1179,6 @@ footer {
 
   <footer>
     <p><strong>Published by the Owners Corporation Committee, 5/5A Winton Road, Malvern East VIC.</strong></p>
-    <p><strong>Last updated:</strong> <span class="tbc">[date TBC]</span></p>
   </footer>
 
 </div>
