@@ -123,12 +123,17 @@ a { color: var(--accent); text-underline-offset: 0.18em; text-decoration-thickne
     justify-content: center;
     padding-top: 3.5rem;
   }
-  .masthead { grid-area: 1 / 2; }
-  .guide    { grid-area: 2 / 2; }
-  .summary  { grid-area: 3 / 2; }
-  .toc      { grid-area: 2 / 1 / 6 / 2; position: sticky; top: 3.5rem; align-self: start; }
-  main      { grid-area: 4 / 2; }
-  footer    { grid-area: 5 / 2; }
+  /* Everything flows down column 2; only the contents list occupies the
+     margin. Stated as a rule over all children rather than per-element, so a
+     block added later cannot silently land in the narrow margin column. */
+  .doc > * { grid-column: 2; }
+  .doc > .toc {
+    grid-column: 1;
+    grid-row: 3 / span 12;
+    position: sticky;
+    top: 3.5rem;
+    align-self: start;
+  }
 }
 
 /* ---------- masthead ---------- */
@@ -160,16 +165,151 @@ h1 {
 }
 
 /* ---------- neutrality notice ---------- */
+
+
+/* ==========================================================================
+   Component kit
+   Frames and shading are used to separate kinds of information — a step, a
+   qualification, a set of options — never to make one voting outcome look
+   more attractive than the other. One tint, one hairline, no colour coding.
+   ========================================================================== */
+
+/* top statement of purpose */
 .notice {
+  margin-top: 1.6rem;
+  border: 1px solid var(--rule-2);
+  background: var(--paper-2);
+  padding: 1rem 1.25rem 1.1rem;
   display: flex;
   flex-direction: column;
-  gap: 0.7rem;
-  margin-top: 1.6rem;
+  gap: 0.55rem;
   font-size: var(--fs-sm);
   color: var(--ink-2);
-  border-left: 2px solid var(--rule-2);
-  padding: 0.1rem 0 0.1rem 1rem;
+}
+.notice .label { margin-bottom: 0.15rem; }
+
+/* key facts strip */
+.facts {
+  margin-top: 1.6rem;
+  display: grid;
+  grid-template-columns: 1fr;
+  border: 1px solid var(--ink);
+}
+@media (min-width: 640px) { .facts { grid-template-columns: repeat(3, 1fr); } }
+.facts > div { padding: 0.9rem 1.1rem 1rem; border-bottom: 1px solid var(--rule); }
+.facts > div:last-child { border-bottom: 0; }
+@media (min-width: 640px) {
+  .facts > div { border-bottom: 0; border-right: 1px solid var(--rule); }
+  .facts > div:last-child { border-right: 0; }
+}
+.facts .k {
+  display: block;
+  font-size: var(--fs-micro);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+  font-weight: 700;
+  margin-bottom: 0.3rem;
+}
+.facts .v { font-weight: 650; font-size: var(--fs-sm); line-height: 1.35; }
+
+/* framed panel */
+.panel {
+  border: 1px solid var(--rule-2);
+  padding: 1.1rem 1.25rem 1.2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+.panel > h3 { margin-top: 0; }
+.panel ul { margin: 0; padding-left: 1.15rem; display: flex; flex-direction: column; gap: 0.5rem; }
+.panel li { max-width: none; }
+.panel p { max-width: none; }
+
+/* shaded callout for qualifications and cautions */
+.callout {
+  background: var(--paper-2);
+  border-left: 3px solid var(--rule-2);
+  padding: 0.9rem 1.15rem 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  font-size: var(--fs-sm);
+  color: var(--ink-2);
   max-width: var(--measure);
+}
+.callout strong { color: var(--ink); }
+.callout p { max-width: none; }
+
+/* two panels side by side, identical weight */
+.two { display: grid; grid-template-columns: 1fr; gap: 1rem; }
+@media (min-width: 720px) { .two { grid-template-columns: 1fr 1fr; } }
+
+/* numbered step blocks */
+.steps {
+  list-style: none;
+  padding: 0;
+  counter-reset: step;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.steps > li {
+  counter-increment: step;
+  border: 1px solid var(--rule-2);
+  padding: 1rem 1.25rem 1.15rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  max-width: none;
+}
+.steps > li::before {
+  content: counter(step);
+  font-family: var(--mono);
+  font-size: var(--fs-xs);
+  color: var(--ink-3);
+  border: 1px solid var(--rule-2);
+  width: 1.6rem;
+  height: 1.6rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: none;
+}
+.steps h3 { margin-top: 0; }
+.steps p { max-width: none; }
+
+/* shaded list block */
+.list-panel {
+  background: var(--paper-2);
+  border: 1px solid var(--rule);
+  padding: 1rem 1.25rem 1.05rem;
+}
+.list-panel ul { margin: 0; padding-left: 1.15rem; display: flex; flex-direction: column; gap: 0.45rem; }
+.list-panel li { max-width: none; }
+
+/* contact cards */
+.cards { display: grid; grid-template-columns: 1fr; gap: 1rem; }
+@media (min-width: 720px) { .cards { grid-template-columns: 1fr 1fr; } }
+.card {
+  border: 1px solid var(--rule-2);
+  padding: 1rem 1.15rem 1.1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  font-size: var(--fs-sm);
+  color: var(--ink-2);
+}
+.card .who { font-weight: 700; color: var(--ink); font-size: var(--fs-base); }
+.card .val { display: block; }
+
+/* closing date line */
+.closing {
+  border-top: 2px solid var(--ink);
+  border-bottom: 2px solid var(--ink);
+  padding: 0.85rem 0;
+  font-size: var(--fs-md);
+  font-weight: 650;
 }
 
 /* ---------- quick guide ---------- */
@@ -488,6 +628,14 @@ footer {
   section h3 { break-after: avoid; }
   .resolution, .summary, .pair > div, tr, .qa > li { break-inside: avoid; }
   table { min-width: 0; }
+
+  .panel, .callout, .steps > li, .card, .list-panel, .facts, .notice, .closing {
+    break-inside: avoid;
+    background: none;
+  }
+  .facts { border-color: #999; }
+  .panel, .steps > li, .card { border-color: #999; }
+  .list-panel, .notice { border-color: #ccc; }
   a { color: #000; text-decoration: none; }
   .tbc { background: none; border-bottom: 1px dotted #888; }
 }
@@ -498,6 +646,34 @@ footer {
     <h1>Embedded Electricity Network Review</h1>
     <p class="sub">Information for Owners – 5/5A Winton Road, Malvern East</p>
   </header>
+
+  <div class="notice">
+    <span class="label">About this information</span>
+    <p>
+      This page has been prepared by the Owners Corporation Committee as a factual information
+      resource to assist owners in understanding the proposed Special Resolution and making an
+      informed decision.
+    </p>
+    <p>
+      Where a statement represents the Committee's view or position, it is identified as such. The
+      page is not intended to advocate for or against the resolution.
+    </p>
+  </div>
+
+  <div class="facts">
+    <div>
+      <span class="k">Voting closes</span>
+      <span class="v">Thursday 13 August 2026, 5 PM</span>
+    </div>
+    <div>
+      <span class="k">Resolution type</span>
+      <span class="v">Special Resolution</span>
+    </div>
+    <div>
+      <span class="k">What it decides</span>
+      <span class="v">Termination only</span>
+    </div>
+  </div>
 
   <div class="guide">
     <h2 class="label">A quick guide to the decision</h2>
@@ -640,55 +816,59 @@ footer {
         </p>
       </div>
 
-      <dl class="pair">
-        <div>
-          <dt>What the resolution does</dt>
-          <dd>
+      <div class="two">
+        <div class="panel">
+          <h3>What the resolution does</h3>
+          <p>
             The resolution seeks the approval required under the existing agreement for the Owners
             Corporation to proceed with termination.
-          </dd>
+          </p>
         </div>
-        <div>
-          <dt>What the resolution does not do</dt>
-          <dd>
+        <div class="panel">
+          <h3>What the resolution does not do</h3>
+          <p>
             The resolution does <strong>not</strong> appoint a new electricity provider. If the
             resolution is passed and the existing agreement is lawfully terminated, the Committee
             can then proceed with the appointment of a replacement provider under its existing
             powers.
-          </dd>
+          </p>
         </div>
-      </dl>
+      </div>
     </section>
 
     <section id="why-review">
       <h2>Why the review was undertaken</h2>
 
-      <p>
+      <p class="lead">
         Over a number of years, both the previous Committee and the current Committee have
         considered the operation of the property's embedded electricity network.
       </p>
 
       <p>The review has considered:</p>
-      <ul>
-        <li>the value and operation of the existing arrangement;</li>
-        <li>pricing and billing;</li>
-        <li>communication with the provider and its responsiveness to the Owners Corporation;</li>
-        <li>the long-term operation of the embedded network; and</li>
-        <li>the operation of the property's solar generation and the financial benefits associated
-            with that generation.</li>
-      </ul>
+      <div class="list-panel">
+        <ul>
+          <li>the value and operation of the existing arrangement;</li>
+          <li>pricing and billing;</li>
+          <li>communication with the provider and its responsiveness to the Owners Corporation;</li>
+          <li>the long-term operation of the embedded network; and</li>
+          <li>the operation of the property's solar generation and the financial benefits associated
+              with that generation.</li>
+        </ul>
+      </div>
 
-      <p>
-        The embedded network has continued to provide electricity to the property. The review has
-        therefore focused on the <strong>contractual, financial and governance aspects</strong> of
-        the arrangement rather than continuity of supply.
-      </p>
+      <div class="callout">
+        <p>
+          The embedded network has continued to provide electricity to the property. The review has
+          therefore focused on the <strong>contractual, financial and governance aspects</strong> of
+          the arrangement rather than continuity of supply.
+        </p>
+      </div>
     </section>
 
     <section id="objective">
       <h2>What the Committee is seeking to achieve</h2>
 
-      <p>
+      <p class="lead">
         The Committee's objective is to give the Owners Corporation <strong>greater control and
         choice over its electricity supply arrangements</strong>.
       </p>
@@ -697,22 +877,28 @@ footer {
         If the existing agreement is lawfully terminated, the Owners Corporation can consider
         alternative providers and compare:
       </p>
-      <ul>
-        <li>electricity rates;</li>
-        <li>pricing structures;</li>
-        <li>contractual terms;</li>
-        <li>service arrangements; and</li>
-        <li>the overall value offered to the complex.</li>
-      </ul>
+      <div class="list-panel">
+        <ul>
+          <li>electricity rates;</li>
+          <li>pricing structures;</li>
+          <li>contractual terms;</li>
+          <li>service arrangements; and</li>
+          <li>the overall value offered to the complex.</li>
+        </ul>
+      </div>
 
       <p>
         This creates an opportunity to seek competitive electricity costs for the <strong>entire
         complex</strong>, including both owner-occupied and tenanted lots.
       </p>
-      <p>
-        The Committee does not represent that a particular saving or rate is guaranteed. Any future
-        costs or benefits will depend on the provider and arrangements ultimately selected.
-      </p>
+
+      <div class="callout">
+        <span class="label">Please note</span>
+        <p>
+          The Committee does not represent that a particular saving or rate is guaranteed. Any
+          future costs or benefits will depend on the provider and arrangements ultimately selected.
+        </p>
+      </div>
 
       <h3>Proposed replacement provider</h3>
       <p>
@@ -723,56 +909,72 @@ footer {
         Origin currently manages the property's embedded hot water service and has offered
         discounts on that basis.
       </p>
-      <p>Importantly, <strong>Origin is not being appointed by this vote</strong>.</p>
-      <p>
-        Any appointment of a replacement provider would be a separate step following lawful
-        termination of the existing agreement.
-      </p>
+
+      <div class="callout">
+        <p>
+          Importantly, <strong>Origin is not being appointed by this vote</strong>. Any appointment
+          of a replacement provider would be a separate step following lawful termination of the
+          existing agreement.
+        </p>
+      </div>
     </section>
 
     <section id="steps">
       <h2>Steps taken to date</h2>
 
-      <p>
+      <p class="lead">
         The Committee has taken a number of steps concerning termination of the existing agreement.
       </p>
 
-      <h3>Notice of termination</h3>
-      <p>The Committee issued a formal Notice of Termination to the provider.</p>
-      <p>No response was received for more than 30 days.</p>
+      <ol class="steps">
+        <li>
+          <h3>Notice of termination</h3>
+          <p>The Committee issued a formal Notice of Termination to the provider.</p>
+          <p>No response was received for more than 30 days.</p>
+        </li>
+        <li>
+          <h3>Legal correspondence</h3>
+          <p>
+            Following the absence of a response, the Owners Corporation engaged legal
+            representatives to pursue the matter.
+          </p>
+          <p>A Letter of Demand was issued.</p>
+          <p>
+            A response was subsequently received from the provider. The response did not provide a
+            meaningful response to the matters raised and further legal communication was required.
+          </p>
+        </li>
+        <li>
+          <h3>Energy and Water Ombudsman Victoria</h3>
+          <p>
+            The matter was also referred to the <strong>Energy and Water Ombudsman Victoria
+            (EWOV)</strong>.
+          </p>
+          <p>
+            EWOV contacted the provider seeking a response and has assigned an investigator to the
+            matter.
+          </p>
+          <p>Those enquiries are continuing. The outcome is not yet known.</p>
+        </li>
+      </ol>
 
-      <h3>Legal correspondence</h3>
-      <p>
-        Following the absence of a response, the Owners Corporation engaged legal representatives
-        to pursue the matter.
+      <p class="muted">
+        The Committee will update owners if further material information becomes available.
       </p>
-      <p>A Letter of Demand was issued.</p>
-      <p>
-        A response was subsequently received from the provider. The response did not provide a
-        meaningful response to the matters raised and further legal communication was required.
-      </p>
-
-      <h3>Energy and Water Ombudsman Victoria</h3>
-      <p>
-        The matter was also referred to the <strong>Energy and Water Ombudsman Victoria
-        (EWOV)</strong>.
-      </p>
-      <p>
-        EWOV contacted the provider seeking a response and has assigned an investigator to the
-        matter.
-      </p>
-      <p>Those enquiries are continuing. The outcome is not yet known.</p>
-      <p>The Committee will update owners if further material information becomes available.</p>
     </section>
 
     <section id="agreement">
       <h2>The agreement and notice period</h2>
 
-      <p>
-        The existing agreement provides for six months' written notice before the end of the
-        relevant term.
-      </p>
-      <p>It also contains an automatic renewal provision for a further five-year term.</p>
+      <div class="panel">
+        <h3>What the agreement provides</h3>
+        <p>
+          The existing agreement provides for six months' written notice before the end of the
+          relevant term.
+        </p>
+        <p>It also contains an automatic renewal provision for a further five-year term.</p>
+      </div>
+
       <p>
         The six-month notice window for the current term closed on <strong>26 June 2026</strong>.
       </p>
@@ -789,7 +991,7 @@ footer {
     <section id="legal">
       <h2>The Committee's legal position</h2>
 
-      <p>
+      <p class="lead">
         The Committee has been legally advised in relation to a number of provisions of the
         existing agreement.
       </p>
@@ -799,13 +1001,15 @@ footer {
       </p>
 
       <p>These include provisions concerning:</p>
-      <ul>
-        <li>automatic renewal of the agreement;</li>
-        <li>the requirement for a Special Resolution before the Owners Corporation can give notice
-            of termination;</li>
-        <li>the 90-day notice provision applying to Shine's termination without cause; and</li>
-        <li>Shine's discretion not to provide services during an alleged default.</li>
-      </ul>
+      <div class="list-panel">
+        <ul>
+          <li>automatic renewal of the agreement;</li>
+          <li>the requirement for a Special Resolution before the Owners Corporation can give notice
+              of termination;</li>
+          <li>the 90-day notice provision applying to Shine's termination without cause; and</li>
+          <li>Shine's discretion not to provide services during an alleged default.</li>
+        </ul>
+      </div>
 
       <p>
         The Committee's position also takes into account the allocation of ownership, maintenance
@@ -828,64 +1032,70 @@ footer {
         that the Notice of Termination issued by the Owners Corporation provided that notice.
       </p>
 
-      <h3>Important qualification</h3>
-      <p>
-        This is the <strong>Committee's position based on legal advice received by the Owners
-        Corporation</strong>.
-      </p>
-      <p>It is not presented as a determination by a court or tribunal.</p>
-      <p>
-        If the provider disputes the Owners Corporation's position, the matter may require further
-        legal action or determination by an appropriate court or tribunal.
-      </p>
-      <p>
-        The relevant legal correspondence and advice are available to lot owners on request from the
-        Owners Corporation Manager.
-      </p>
+      <div class="callout">
+        <span class="label">Important qualification</span>
+        <p>
+          This is the <strong>Committee's position based on legal advice received by the Owners
+          Corporation</strong>. It is not presented as a determination by a court or tribunal.
+        </p>
+        <p>
+          If the provider disputes the Owners Corporation's position, the matter may require further
+          legal action or determination by an appropriate court or tribunal.
+        </p>
+        <p>
+          The relevant legal correspondence and advice are available to lot owners on request from
+          the Owners Corporation Manager.
+        </p>
+      </div>
     </section>
 
     <section id="outcomes">
       <h2>What each voting outcome means</h2>
 
-      <h3>If the resolution is passed</h3>
-      <ul>
-        <li>The Owners Corporation will have passed the Special Resolution sought in relation to the
-            existing agreement.</li>
-        <li>The Committee can proceed with the next steps concerning termination.</li>
-        <li>If the agreement is lawfully terminated, the Committee can consider and appoint a
-            replacement provider under its existing powers.</li>
-        <li>The resolution itself does <strong>not</strong> appoint Origin Energy or any other
-            provider.</li>
-        <li>The existing provider may dispute the termination. If that occurs, the Owners
-            Corporation may need to respond and may incur further legal costs.</li>
-        <li>The Committee's intention is for electricity supply to continue throughout any
-            changeover.</li>
-      </ul>
-
-      <h3>If the resolution is not passed</h3>
-      <ul>
-        <li>The Special Resolution referred to in clause 11.2(b)(i) of the existing agreement will
-            not have been obtained.</li>
-        <li>The existing agreement would remain in place <strong>unless and until the Owners
-            Corporation takes further action to terminate it, or the agreement is otherwise brought
-            to an end</strong>.</li>
-        <li>The Committee would not proceed with the appointment of a replacement provider on the
-            basis of this resolution.</li>
-        <li>A vote against the resolution would <strong>not prevent the Owners Corporation from
-            considering or pursuing other legal options</strong> in relation to the existing
-            agreement.</li>
-        <li>The Committee's position remains that the Special Resolution requirement is an unfair
-            and void contractual term and that the six-month written notice requirement was
-            satisfied by the Notice of Termination.</li>
-        <li>The Committee will consider the legal options available to the Owners Corporation if the
-            resolution is not passed.</li>
-      </ul>
+      <div class="two">
+        <div class="panel">
+          <h3>If the resolution is passed</h3>
+          <ul>
+            <li>The Owners Corporation will have passed the Special Resolution sought in relation to
+                the existing agreement.</li>
+            <li>The Committee can proceed with the next steps concerning termination.</li>
+            <li>If the agreement is lawfully terminated, the Committee can consider and appoint a
+                replacement provider under its existing powers.</li>
+            <li>The resolution itself does <strong>not</strong> appoint Origin Energy or any other
+                provider.</li>
+            <li>The existing provider may dispute the termination. If that occurs, the Owners
+                Corporation may need to respond and may incur further legal costs.</li>
+            <li>The Committee's intention is for electricity supply to continue throughout any
+                changeover.</li>
+          </ul>
+        </div>
+        <div class="panel">
+          <h3>If the resolution is not passed</h3>
+          <ul>
+            <li>The Special Resolution referred to in clause 11.2(b)(i) of the existing agreement
+                will not have been obtained.</li>
+            <li>The existing agreement would remain in place <strong>unless and until the Owners
+                Corporation takes further action to terminate it, or the agreement is otherwise
+                brought to an end</strong>.</li>
+            <li>The Committee would not proceed with the appointment of a replacement provider on
+                the basis of this resolution.</li>
+            <li>A vote against the resolution would <strong>not prevent the Owners Corporation from
+                considering or pursuing other legal options</strong> in relation to the existing
+                agreement.</li>
+            <li>The Committee's position remains that the Special Resolution requirement is an
+                unfair and void contractual term and that the six-month written notice requirement
+                was satisfied by the Notice of Termination.</li>
+            <li>The Committee will consider the legal options available to the Owners Corporation if
+                the resolution is not passed.</li>
+          </ul>
+        </div>
+      </div>
     </section>
 
     <section id="voting">
       <h2>How the vote works</h2>
 
-      <p>
+      <p class="lead">
         Voting is conducted under the <strong><em>Owners Corporations Act 2006</em> (Vic)</strong>
         and the Owners Corporation's rules.
       </p>
@@ -894,15 +1104,17 @@ footer {
       </p>
 
       <p>Owners should:</p>
-      <ul>
-        <li>read the resolution carefully;</li>
-        <li>follow the voting instructions provided with the ballot;</li>
-        <li>ensure their vote is submitted before the closing time; and</li>
-        <li>contact the Owners Corporation Manager with any questions about voting entitlement or
-            the ballot process.</li>
-      </ul>
+      <div class="list-panel">
+        <ul>
+          <li>read the resolution carefully;</li>
+          <li>follow the voting instructions provided with the ballot;</li>
+          <li>ensure their vote is submitted before the closing time; and</li>
+          <li>contact the Owners Corporation Manager with any questions about voting entitlement or
+              the ballot process.</li>
+        </ul>
+      </div>
 
-      <p><strong>Voting closes: Thursday 13 August 2026 at 5 PM.</strong></p>
+      <p class="closing">Voting closes: Thursday 13 August 2026 at 5 PM.</p>
     </section>
 
     <section id="questions">
@@ -981,9 +1193,7 @@ footer {
             The Committee also considers the requirement for a Special Resolution before notice
             could be given to be an unfair and void contractual term.
           </p>
-          <p>
-            These are legal positions that have not been determined by a court or tribunal.
-          </p>
+          <p>These are legal positions that have not been determined by a court or tribunal.</p>
           <p>
             The Committee is seeking the Special Resolution while retaining the ability to pursue
             further legal options available to the Owners Corporation.
@@ -1097,46 +1307,48 @@ footer {
       <p>
         The following documents are available to lot owners from the Owners Corporation Manager:
       </p>
-      <ul>
-        <li>Existing embedded electricity supply agreement</li>
-        <li>Notice of Termination</li>
-        <li>Letter of Demand issued by legal representatives</li>
-        <li>Response from Shine Power</li>
-        <li>Further legal correspondence</li>
-        <li>EWOV correspondence</li>
-        <li>Legal advice concerning the notice period and renewal</li>
-        <li>Legal correspondence concerning the contractual terms</li>
-        <li>Proposal and rate comparison for the proposed provider</li>
-        <li>Notice of meeting and ballot</li>
-      </ul>
+      <div class="list-panel">
+        <ul>
+          <li>Existing embedded electricity supply agreement</li>
+          <li>Notice of Termination</li>
+          <li>Letter of Demand issued by legal representatives</li>
+          <li>Response from Shine Power</li>
+          <li>Further legal correspondence</li>
+          <li>EWOV correspondence</li>
+          <li>Legal advice concerning the notice period and renewal</li>
+          <li>Legal correspondence concerning the contractual terms</li>
+          <li>Proposal and rate comparison for the proposed provider</li>
+          <li>Notice of meeting and ballot</li>
+        </ul>
+      </div>
 
       <h3>Who to contact</h3>
-      <ul class="contacts">
-        <li>
+      <div class="cards">
+        <div class="card">
           <span class="who">Owners Corporation Manager</span>
           <span class="val"><strong><span class="tbc">[Name / company / email / phone TBC]</span></strong></span>
-          For voting papers, document requests and questions concerning voting entitlement.
-        </li>
-        <li>
+          <span>For voting papers, document requests and questions concerning voting entitlement.</span>
+        </div>
+        <div class="card">
           <span class="who">Owners Corporation Committee</span>
           <span class="val"><strong><span class="tbc">[Email TBC]</span></strong></span>
-          For questions concerning the review and the proposed resolution.
-        </li>
-        <li>
+          <span>For questions concerning the review and the proposed resolution.</span>
+        </div>
+        <div class="card">
           <span class="who">Energy and Water Ombudsman Victoria (EWOV)</span>
-          For information concerning electricity complaints and disputes.
-        </li>
-        <li>
+          <span>For information concerning electricity complaints and disputes.</span>
+        </div>
+        <div class="card">
           <span class="who">Consumer Affairs Victoria</span>
-          For general information concerning Owners Corporations, meetings and resolutions.
-        </li>
-      </ul>
+          <span>For general information concerning Owners Corporations, meetings and resolutions.</span>
+        </div>
+      </div>
     </section>
 
     <section id="about">
       <h2>About this page</h2>
 
-      <p>
+      <p class="lead">
         This page has been prepared by the Owners Corporation Committee for the information of lot
         owners.
       </p>
@@ -1146,25 +1358,30 @@ footer {
       </p>
 
       <p>The page distinguishes between:</p>
-      <ul>
-        <li>documented events;</li>
-        <li>information contained in the existing agreement;</li>
-        <li>the Committee's position; and</li>
-        <li>matters that remain subject to legal or other determination.</li>
-      </ul>
+      <div class="list-panel">
+        <ul>
+          <li>documented events;</li>
+          <li>information contained in the existing agreement;</li>
+          <li>the Committee's position; and</li>
+          <li>matters that remain subject to legal or other determination.</li>
+        </ul>
+      </div>
 
-      <p>
-        The Committee's stated legal position is based on legal advice received by the Owners
-        Corporation. It is not presented as a determination by a court or tribunal.
-      </p>
-      <p>
-        This page is not legal advice and is not intended to determine the legal rights of the
-        Owners Corporation, individual lot owners or the provider.
-      </p>
-      <p>
-        The <strong>notice of meeting and ballot wording remain the authoritative documents for the
-        vote</strong>.
-      </p>
+      <div class="callout">
+        <p>
+          The Committee's stated legal position is based on legal advice received by the Owners
+          Corporation. It is not presented as a determination by a court or tribunal.
+        </p>
+        <p>
+          This page is not legal advice and is not intended to determine the legal rights of the
+          Owners Corporation, individual lot owners or the provider.
+        </p>
+        <p>
+          The <strong>notice of meeting and ballot wording remain the authoritative documents for
+          the vote</strong>.
+        </p>
+      </div>
+
       <p>
         Supporting documents referred to on this page are available to lot owners through the Owners
         Corporation Manager.
@@ -1179,6 +1396,7 @@ footer {
 
   <footer>
     <p><strong>Published by the Owners Corporation Committee, 5/5A Winton Road, Malvern East VIC.</strong></p>
+    <p><strong>Last updated:</strong> <span class="tbc">[date TBC]</span></p>
   </footer>
 
 </div>
